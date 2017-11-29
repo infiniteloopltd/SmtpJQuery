@@ -1,0 +1,29 @@
+<html>
+ <head>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="smtp-jquery.js"></script>
+ </head>
+ <body>
+   <button id="btnSend">Send</Button>
+   <script>
+	$(init);
+	function init()
+	{
+		$("#btnSend").bind("click",btnSend_click);
+	}
+
+	function btnSend_click()
+	{
+		$.fn.Email.send("from@you.com",
+        "to@them.com",
+        "Subject line",
+        "Body in HTML",
+        {
+            token: "GUID from SMTPJS.com",
+            callback: function done(message) { alert(message) }
+        });
+		return false;
+	}
+   </script>
+ </body>
+</html>
